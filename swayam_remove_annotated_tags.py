@@ -32,7 +32,8 @@ for _f in onlyfiles:
     _list_translation = []
     for line in codecs.open(path):
         line = line.strip()
-
+        line = line.replace('<DOM>', '_').replace('</DOM>','_')
+        line = line.replace('<equation>', '##').replace('</equation>','##')
         line = re.sub("(\<HES\>).*?(\<\/HES\>)", " ", line)
         line = re.sub("(\<HES\>).*?(\<HES\/\>)", " ", line)
         line = re.sub("(\< HES\>).*?(\<\/HES\>)", " ", line)
